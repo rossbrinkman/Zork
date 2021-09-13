@@ -47,25 +47,30 @@ namespace Zork
 
             switch (command)
             {
-                case Commands.NORTH:
-                case Commands.SOUTH:
+                case Commands.NORTH when LocationRow < Rooms.GetLength(0) - 1:
+                    LocationRow++;
+                    didMove = true;
+                    break;
+                case Commands.SOUTH when LocationRow > 0:
+                    LocationRow--;
+                    didMove = true;
                     break;
                 case Commands.EAST when LocationColumn < Rooms.GetLength(1) - 1:
-                        LocationColumn++;
-                        didMove = true;
+                    LocationColumn++;
+                    didMove = true;
                     break;
                 case Commands.WEST when LocationColumn > 0:
-                        LocationColumn--;
-                        didMove = true;
+                    LocationColumn--;
+                    didMove = true;
                     break;
             }
             return didMove;
         }
 
         private static readonly string[,] Rooms = {
-            { "Forest", "West of House", "Behind House"},
+            { "Rocky Trail", "South of House", "Canyon View" },
+            { "Forest", "West of House", "Behind House"},                      
             { "Dense Woods", "North of House", "Clearing" },
-            { "Rocky Trail", "South of House", "Canyon View" }
         };
         private static int LocationColumn = 1;
         private static int LocationRow = 1;
