@@ -1,10 +1,29 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Zork
 {
-    class Program
+    public static class Assert
     {
-        private static string Location => Rooms[LocationRow, LocationColumn];
+        [Conditional("DEBUG")]
+        public static void IsTrue(bool expression, string message = null)
+        {
+            if (expression == false)
+                throw new Exception(message);
+        }
+    }
+
+    internal class Program
+    {
+        private static string CurrentRoom
+        {
+            get
+            {
+                return Rooms[Location.Row, Location.Column];
+            }
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Zork!");
@@ -12,7 +31,7 @@ namespace Zork
             Commands command = Commands.UNKNOWN;
             while (command != Commands.QUIT)
             {
-                Console.Write($"{Location}\n> ");
+                Console.Write($"{CurrentRoom}\n> ");
                 command = ToCommand(Console.ReadLine().Trim());
 
                 string outputString;
@@ -41,27 +60,33 @@ namespace Zork
 
         private static Commands ToCommand(string commandString) => Enum.TryParse(commandString, true, out Commands result) ? result : Commands.UNKNOWN;
 
+        private static bool IsDirection(Commands command) => Directions.Contains(command);
+
         private static bool Move(Commands command)
         {
-            bool didMove = false;
+            Assert.IsTrue(IsDirection(command), "Invalid Direction");
 
+            bool didMove;
             switch (command)
             {
-                case Commands.NORTH when LocationRow < Rooms.GetLength(0) - 1:
-                    LocationRow++;
+                case Commands.NORTH when Location.Row < Rooms.GetLength(0) - 1:
+                    Location.Row++;
                     didMove = true;
                     break;
-                case Commands.SOUTH when LocationRow > 0:
-                    LocationRow--;
+                case Commands.SOUTH when Location.Row > 0:
+                    Location.Row--;
                     didMove = true;
                     break;
-                case Commands.EAST when LocationColumn < Rooms.GetLength(1) - 1:
-                    LocationColumn++;
+                case Commands.EAST when Location.Column < Rooms.GetLength(1) - 1:
+                    Location.Column++;
                     didMove = true;
                     break;
-                case Commands.WEST when LocationColumn > 0:
-                    LocationColumn--;
+                case Commands.WEST when Location.Column > 0:
+                    Location.Column--;
                     didMove = true;
+                    break;
+                default:
+                    didMove = false;
                     break;
             }
             return didMove;
@@ -72,7 +97,15 @@ namespace Zork
             { "Forest", "West of House", "Behind House"},                      
             { "Dense Woods", "North of House", "Clearing" },
         };
-        private static int LocationColumn = 1;
-        private static int LocationRow = 1;
+
+        private static readonly List<Commands> Directions = new List<Commands>()
+        {
+            Commands.NORTH,
+            Commands.SOUTH,
+            Commands.EAST,
+            Commands.WEST
+        };
+        
+        private static (int Row, int Column) Location = (1,1);
     }
 }
