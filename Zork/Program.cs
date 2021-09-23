@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 
 namespace Zork
@@ -23,11 +22,11 @@ namespace Zork
             Commands command = Commands.UNKNOWN;
             while (command != Commands.QUIT)
             {
-                Console.Write($"{CurrentRoom}\n> ");
+                Console.Write($"{CurrentRoom}\n");
 
                 if (previousRoom != CurrentRoom)
                 {
-                    Console.WriteLine(CurrentRoom.Description);
+                    Console.Write($"{CurrentRoom.Description}\n> ");
                     previousRoom = CurrentRoom;
                 }
 
@@ -100,10 +99,10 @@ namespace Zork
             roomMap["Canyon View"].Description = "You are at the top of the Great Canyon on its south wall.";                                                
             roomMap["Forest"].Description = "This is a forest, with trees in all directions around you.";                                                 
             roomMap["West of House"].Description = "This is an open field west of a white house, with a boarded front door.";
-            roomMap["Behind House"].Description = "You are behind the white house. In one corner of the house there is a small window which is slightly ajar";
+            roomMap["Behind House"].Description = "You are behind the white house. In one corner of the house there is a small window which is slightly ajar.";
             roomMap["Dense Woods"].Description = "This is a dimly lit forest, with large trees all around. To the east, there appears to be sunlight.";      
             roomMap["North of House"].Description = "You are facing the north side of a white house. There is no door here, and all the windows are barred.";
-            roomMap["Clearing"].Description = "You are in a clearing, with a forest surrounding you on the west and south";                                  
+            roomMap["Clearing"].Description = "You are in a clearing, with a forest surrounding you on the west and south.";                                  
         }
 
         private static readonly Room[,] Rooms = {
