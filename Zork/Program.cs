@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace Zork
 {
@@ -16,9 +17,9 @@ namespace Zork
 
         static void Main(string[] args)
         {
-            const string defaultFileName = "Rooms.txt";
+            const string defaultFileName = "Rooms.json";
             string roomsFileName = (args.Length > 0 ? args[(int)CommandLineArguments.RoomsFileName] : defaultFileName);
-            InitializeRoomDescriptions(roomsFileName);
+            InitializeRooms(roomsFileName);
             Console.WriteLine("Welcome to Zork!");
 
             Room previousRoom = null;
@@ -57,18 +58,6 @@ namespace Zork
             }
         }
 
-        static Program()
-        {
-            RoomMap = new Dictionary<string, Room>();
-
-            foreach (Room room in Rooms)
-            {
-                RoomMap[room.Name] = room;
-            }
-        }
-
-        private static readonly Dictionary<string, Room> RoomMap;
-
         private static Commands ToCommand(string commandString) => Enum.TryParse(commandString, true, out Commands result) ? result : Commands.UNKNOWN;
 
         private static bool IsDirection(Commands command) => Directions.Contains(command);
@@ -103,29 +92,10 @@ namespace Zork
             return didMove;
         }
 
-        private static void InitializeRoomDescriptions(string roomsFileName)
-        {
-            string[] lines = File.ReadAllLines(roomsFileName);
+        private static void InitializeRooms(string roomsFileName) =>
+            Rooms = JsonConvert.DeserializeObject<Room[,]>(File.ReadAllText(roomsFileName));
 
-            foreach (string line in lines)
-            {
-                const string delimiter = "##";
-                const int expectedFieldCount = 2;
-
-                string[] fields = line.Split(delimiter);
-                Assert.IsTrue(fields.Length == expectedFieldCount, "Invalid Record");
-
-                (string name, string description) = (fields[(int)Fields.Name], fields[(int)Fields.Description]);
-
-                RoomMap[name].Description = description;
-            }
-        }
-
-        private static readonly Room[,] Rooms = {
-              { new Room("Rocky Trail"),  new Room("South of House"),  new Room("Canyon View")},
-              { new Room("Forest"),       new Room("West of House"),   new Room("Behind House") },
-              { new Room("Dense Woods"),  new Room("North of House"),  new Room("Clearing") }
-        };
+        private static Room[,] Rooms;
 
         private static readonly List<Commands> Directions = new List<Commands>()
         {
