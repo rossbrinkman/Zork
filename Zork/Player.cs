@@ -29,5 +29,8 @@ namespace Zork
                 Location = destination;
             return isValidMove;
         }
+
+        public int score { get; set; }
+        public int moves { get; set; }
     }
 }

@@ -31,16 +31,24 @@ namespace Zork
 
                 if (previousRoom != Player.Location)
                 {
-                    Console.Write($"{Player.Location.Description}\n> ");
+                    Console.Write($"{Player.Location.Description}\n\n> ");
                     previousRoom = Player.Location;
                 }
 
                 Commands command = ToCommand(Console.ReadLine().Trim());
+                Player.moves++;
 
                 switch (command)
                 {
                     case Commands.QUIT:
                         IsRunning = false;
+                        break;
+                    case Commands.SCORE:
+                        Console.WriteLine($"Your score would be {Player.score}, in {Player.moves} move(s).\n");
+                        break;
+                    case Commands.REWARD:
+                        Player.score++;
+                        Console.WriteLine("Player score +1\n");
                         break;
                     case Commands.LOOK:
                         Console.WriteLine(Player.Location.Description);
@@ -51,10 +59,11 @@ namespace Zork
                     case Commands.WEST:
                         Directions direction = Enum.Parse<Directions>(command.ToString(), true);
                         if (!Player.Move(direction))
-                            Console.WriteLine("The way is shut!");
+                            Console.WriteLine("The way is shut!\n");
                         break;
                     default:
-                        Console.WriteLine("Unknown command");
+                        --Player.moves;
+                        Console.WriteLine("Unknown command\n");
                         break;
                 }
             }
