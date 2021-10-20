@@ -13,7 +13,7 @@ namespace Zork
         public string LocationName
         {
             get { return Location?.Name; }
-            set { Location = World?.RoomsByName.GetValueOrDefault(value); }
+            set => Location = World?.RoomsByName.GetValueOrDefault(value);
         }
 
         public Player(World world, string startingLocation)

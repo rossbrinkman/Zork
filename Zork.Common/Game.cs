@@ -2,7 +2,6 @@
 using System;
 using System.IO;
 
-
 namespace Zork
 {
     public class Game
@@ -57,7 +56,7 @@ namespace Zork
                     case Commands.SOUTH:
                     case Commands.EAST:
                     case Commands.WEST:
-                        Directions direction = Enum.Parse<Directions>(command.ToString(), true);
+                        Directions direction = (Directions)command;
                         if (!Player.Move(direction))
                             Console.WriteLine("The way is shut!\n");
                         break;

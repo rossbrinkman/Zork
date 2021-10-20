@@ -1,5 +1,4 @@
-﻿
-namespace Zork
+﻿namespace Zork
 {
 	enum Commands
 	{
