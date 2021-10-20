@@ -29,9 +29,9 @@ namespace Zork.Builder
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label label1;
-            System.Windows.Forms.Label label2;
-            System.Windows.Forms.Label label3;
+            System.Windows.Forms.Label startingLocationLabel;
+            System.Windows.Forms.Label welcomeMessageLabel;
+            System.Windows.Forms.Label exitMessageLabel;
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,43 +51,72 @@ namespace Zork.Builder
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.startTabPage = new System.Windows.Forms.TabPage();
+            this.startingLocationComboBox = new System.Windows.Forms.ComboBox();
             this.welcomeTabPage = new System.Windows.Forms.TabPage();
-            this.exitMessagePage = new System.Windows.Forms.TabPage();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.welcomTextBox = new System.Windows.Forms.TextBox();
+            this.exitTabPage = new System.Windows.Forms.TabPage();
+            this.exitTextBox = new System.Windows.Forms.TextBox();
             this.roomsListBox = new System.Windows.Forms.ListBox();
             this.roomsGroupBox = new System.Windows.Forms.GroupBox();
+            this.removeRoomButton = new System.Windows.Forms.Button();
             this.addRoomButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.roomInfoGroupBox = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            label1 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
-            label3 = new System.Windows.Forms.Label();
+            this.itemsTextBox = new System.Windows.Forms.TextBox();
+            this.itemsLabel = new System.Windows.Forms.Label();
+            this.neighborsGroupBox = new System.Windows.Forms.GroupBox();
+            this.westComboBox = new System.Windows.Forms.ComboBox();
+            this.eastComboBox = new System.Windows.Forms.ComboBox();
+            this.southComboBox = new System.Windows.Forms.ComboBox();
+            this.northComboBox = new System.Windows.Forms.ComboBox();
+            this.southLabel = new System.Windows.Forms.Label();
+            this.eastLabel = new System.Windows.Forms.Label();
+            this.westLabel = new System.Windows.Forms.Label();
+            this.northLlabel = new System.Windows.Forms.Label();
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
+            this.roomNameTextBox = new System.Windows.Forms.TextBox();
+            this.descriptionLabel = new System.Windows.Forms.Label();
+            this.roomNameLabel = new System.Windows.Forms.Label();
+            startingLocationLabel = new System.Windows.Forms.Label();
+            welcomeMessageLabel = new System.Windows.Forms.Label();
+            exitMessageLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.startTabPage.SuspendLayout();
             this.welcomeTabPage.SuspendLayout();
-            this.exitMessagePage.SuspendLayout();
+            this.exitTabPage.SuspendLayout();
             this.roomsGroupBox.SuspendLayout();
             this.roomInfoGroupBox.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.neighborsGroupBox.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // startingLocationLabel
+            // 
+            startingLocationLabel.AutoSize = true;
+            startingLocationLabel.Location = new System.Drawing.Point(6, 11);
+            startingLocationLabel.Name = "startingLocationLabel";
+            startingLocationLabel.Size = new System.Drawing.Size(119, 17);
+            startingLocationLabel.TabIndex = 2;
+            startingLocationLabel.Text = "Starting Location:";
+            startingLocationLabel.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // welcomeMessageLabel
+            // 
+            welcomeMessageLabel.AutoSize = true;
+            welcomeMessageLabel.Location = new System.Drawing.Point(6, 11);
+            welcomeMessageLabel.Name = "welcomeMessageLabel";
+            welcomeMessageLabel.Size = new System.Drawing.Size(131, 17);
+            welcomeMessageLabel.TabIndex = 4;
+            welcomeMessageLabel.Text = "Welcome Message:";
+            welcomeMessageLabel.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // exitMessageLabel
+            // 
+            exitMessageLabel.AutoSize = true;
+            exitMessageLabel.Location = new System.Drawing.Point(6, 11);
+            exitMessageLabel.Name = "exitMessageLabel";
+            exitMessageLabel.Size = new System.Drawing.Size(95, 17);
+            exitMessageLabel.TabIndex = 4;
+            exitMessageLabel.Text = "Exit Message:";
             // 
             // menuStrip1
             // 
@@ -119,47 +148,47 @@ namespace Zork.Builder
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // openRecentToolStripMenuItem
             // 
             this.openRecentToolStripMenuItem.Name = "openRecentToolStripMenuItem";
-            this.openRecentToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.openRecentToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.openRecentToolStripMenuItem.Text = "Open Recent";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(174, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(221, 6);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(174, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(221, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // editToolStripMenuItem
@@ -178,44 +207,44 @@ namespace Zork.Builder
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.undoToolStripMenuItem.Text = "Undo";
             // 
             // redoToolStripMenuItem
             // 
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.redoToolStripMenuItem.Text = "Redo";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(125, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(221, 6);
             // 
             // cutToolStripMenuItem
             // 
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.cutToolStripMenuItem.Text = "Cut";
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.copyToolStripMenuItem.Text = "Copy";
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.pasteToolStripMenuItem.Text = "Paste";
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.startTabPage);
             this.tabControl.Controls.Add(this.welcomeTabPage);
-            this.tabControl.Controls.Add(this.exitMessagePage);
-            this.tabControl.Location = new System.Drawing.Point(12, 31);
+            this.tabControl.Controls.Add(this.exitTabPage);
+            this.tabControl.Location = new System.Drawing.Point(8, 35);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(200, 100);
@@ -223,8 +252,8 @@ namespace Zork.Builder
             // 
             // startTabPage
             // 
-            this.startTabPage.Controls.Add(this.comboBox5);
-            this.startTabPage.Controls.Add(label1);
+            this.startTabPage.Controls.Add(this.startingLocationComboBox);
+            this.startTabPage.Controls.Add(startingLocationLabel);
             this.startTabPage.Location = new System.Drawing.Point(4, 25);
             this.startTabPage.Name = "startTabPage";
             this.startTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -233,20 +262,18 @@ namespace Zork.Builder
             this.startTabPage.Text = "Start";
             this.startTabPage.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // startingLocationComboBox
             // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(6, 11);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(119, 17);
-            label1.TabIndex = 2;
-            label1.Text = "Starting Location:";
-            label1.Click += new System.EventHandler(this.label1_Click);
+            this.startingLocationComboBox.FormattingEnabled = true;
+            this.startingLocationComboBox.Location = new System.Drawing.Point(8, 35);
+            this.startingLocationComboBox.Name = "startingLocationComboBox";
+            this.startingLocationComboBox.Size = new System.Drawing.Size(177, 24);
+            this.startingLocationComboBox.TabIndex = 12;
             // 
             // welcomeTabPage
             // 
-            this.welcomeTabPage.Controls.Add(label2);
-            this.welcomeTabPage.Controls.Add(this.textBox2);
+            this.welcomeTabPage.Controls.Add(welcomeMessageLabel);
+            this.welcomeTabPage.Controls.Add(this.welcomTextBox);
             this.welcomeTabPage.Location = new System.Drawing.Point(4, 25);
             this.welcomeTabPage.Name = "welcomeTabPage";
             this.welcomeTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -255,50 +282,31 @@ namespace Zork.Builder
             this.welcomeTabPage.Text = "Welcome";
             this.welcomeTabPage.UseVisualStyleBackColor = true;
             // 
-            // exitMessagePage
+            // welcomTextBox
             // 
-            this.exitMessagePage.Controls.Add(label3);
-            this.exitMessagePage.Controls.Add(this.textBox3);
-            this.exitMessagePage.Location = new System.Drawing.Point(4, 25);
-            this.exitMessagePage.Name = "exitMessagePage";
-            this.exitMessagePage.Size = new System.Drawing.Size(192, 71);
-            this.exitMessagePage.TabIndex = 2;
-            this.exitMessagePage.Text = "Exit";
-            this.exitMessagePage.UseVisualStyleBackColor = true;
+            this.welcomTextBox.Location = new System.Drawing.Point(8, 35);
+            this.welcomTextBox.Name = "welcomTextBox";
+            this.welcomTextBox.Size = new System.Drawing.Size(178, 22);
+            this.welcomTextBox.TabIndex = 3;
+            this.welcomTextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // label2
+            // exitTabPage
             // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(6, 12);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(131, 17);
-            label2.TabIndex = 4;
-            label2.Text = "Welcome Message:";
-            label2.Click += new System.EventHandler(this.label2_Click);
+            this.exitTabPage.Controls.Add(exitMessageLabel);
+            this.exitTabPage.Controls.Add(this.exitTextBox);
+            this.exitTabPage.Location = new System.Drawing.Point(4, 25);
+            this.exitTabPage.Name = "exitTabPage";
+            this.exitTabPage.Size = new System.Drawing.Size(192, 71);
+            this.exitTabPage.TabIndex = 2;
+            this.exitTabPage.Text = "Exit";
+            this.exitTabPage.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // exitTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 39);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(180, 22);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(6, 11);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(95, 17);
-            label3.TabIndex = 4;
-            label3.Text = "Exit Message:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(6, 38);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(180, 22);
-            this.textBox3.TabIndex = 3;
+            this.exitTextBox.Location = new System.Drawing.Point(8, 35);
+            this.exitTextBox.Name = "exitTextBox";
+            this.exitTextBox.Size = new System.Drawing.Size(177, 22);
+            this.exitTextBox.TabIndex = 3;
             // 
             // roomsListBox
             // 
@@ -311,7 +319,7 @@ namespace Zork.Builder
             // 
             // roomsGroupBox
             // 
-            this.roomsGroupBox.Controls.Add(this.button2);
+            this.roomsGroupBox.Controls.Add(this.removeRoomButton);
             this.roomsGroupBox.Controls.Add(this.addRoomButton);
             this.roomsGroupBox.Controls.Add(this.roomsListBox);
             this.roomsGroupBox.Location = new System.Drawing.Point(12, 137);
@@ -320,6 +328,15 @@ namespace Zork.Builder
             this.roomsGroupBox.TabIndex = 3;
             this.roomsGroupBox.TabStop = false;
             this.roomsGroupBox.Text = "Rooms List";
+            // 
+            // removeRoomButton
+            // 
+            this.removeRoomButton.Location = new System.Drawing.Point(119, 272);
+            this.removeRoomButton.Name = "removeRoomButton";
+            this.removeRoomButton.Size = new System.Drawing.Size(75, 23);
+            this.removeRoomButton.TabIndex = 5;
+            this.removeRoomButton.Text = "Remove";
+            this.removeRoomButton.UseVisualStyleBackColor = true;
             // 
             // addRoomButton
             // 
@@ -330,24 +347,15 @@ namespace Zork.Builder
             this.addRoomButton.Text = "Add";
             this.addRoomButton.UseVisualStyleBackColor = true;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(119, 272);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Remove";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // roomInfoGroupBox
             // 
-            this.roomInfoGroupBox.Controls.Add(this.textBox6);
-            this.roomInfoGroupBox.Controls.Add(this.label10);
-            this.roomInfoGroupBox.Controls.Add(this.groupBox1);
-            this.roomInfoGroupBox.Controls.Add(this.textBox5);
-            this.roomInfoGroupBox.Controls.Add(this.textBox4);
-            this.roomInfoGroupBox.Controls.Add(this.label5);
-            this.roomInfoGroupBox.Controls.Add(this.label4);
+            this.roomInfoGroupBox.Controls.Add(this.itemsTextBox);
+            this.roomInfoGroupBox.Controls.Add(this.itemsLabel);
+            this.roomInfoGroupBox.Controls.Add(this.neighborsGroupBox);
+            this.roomInfoGroupBox.Controls.Add(this.descriptionTextBox);
+            this.roomInfoGroupBox.Controls.Add(this.roomNameTextBox);
+            this.roomInfoGroupBox.Controls.Add(this.descriptionLabel);
+            this.roomInfoGroupBox.Controls.Add(this.roomNameLabel);
             this.roomInfoGroupBox.Location = new System.Drawing.Point(234, 31);
             this.roomInfoGroupBox.Name = "roomInfoGroupBox";
             this.roomInfoGroupBox.Size = new System.Drawing.Size(406, 407);
@@ -355,149 +363,141 @@ namespace Zork.Builder
             this.roomInfoGroupBox.TabStop = false;
             this.roomInfoGroupBox.Text = "Room Info";
             // 
-            // label4
+            // itemsTextBox
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 25);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 17);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Room Name:";
+            this.itemsTextBox.Location = new System.Drawing.Point(77, 347);
+            this.itemsTextBox.Multiline = true;
+            this.itemsTextBox.Name = "itemsTextBox";
+            this.itemsTextBox.Size = new System.Drawing.Size(306, 53);
+            this.itemsTextBox.TabIndex = 6;
             // 
-            // label5
+            // itemsLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 63);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 17);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Description:";
+            this.itemsLabel.AutoSize = true;
+            this.itemsLabel.Location = new System.Drawing.Point(26, 354);
+            this.itemsLabel.Name = "itemsLabel";
+            this.itemsLabel.Size = new System.Drawing.Size(45, 17);
+            this.itemsLabel.TabIndex = 5;
+            this.itemsLabel.Text = "Items:";
             // 
-            // textBox4
+            // neighborsGroupBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(115, 23);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(268, 22);
-            this.textBox4.TabIndex = 2;
+            this.neighborsGroupBox.Controls.Add(this.westComboBox);
+            this.neighborsGroupBox.Controls.Add(this.eastComboBox);
+            this.neighborsGroupBox.Controls.Add(this.southComboBox);
+            this.neighborsGroupBox.Controls.Add(this.northComboBox);
+            this.neighborsGroupBox.Controls.Add(this.southLabel);
+            this.neighborsGroupBox.Controls.Add(this.eastLabel);
+            this.neighborsGroupBox.Controls.Add(this.westLabel);
+            this.neighborsGroupBox.Controls.Add(this.northLlabel);
+            this.neighborsGroupBox.Location = new System.Drawing.Point(22, 190);
+            this.neighborsGroupBox.Name = "neighborsGroupBox";
+            this.neighborsGroupBox.Size = new System.Drawing.Size(361, 151);
+            this.neighborsGroupBox.TabIndex = 4;
+            this.neighborsGroupBox.TabStop = false;
+            this.neighborsGroupBox.Text = "Neighbors";
             // 
-            // textBox5
+            // westComboBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(22, 88);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(361, 84);
-            this.textBox5.TabIndex = 3;
+            this.westComboBox.FormattingEnabled = true;
+            this.westComboBox.Location = new System.Drawing.Point(93, 113);
+            this.westComboBox.Name = "westComboBox";
+            this.westComboBox.Size = new System.Drawing.Size(243, 24);
+            this.westComboBox.TabIndex = 11;
             // 
-            // groupBox1
+            // eastComboBox
             // 
-            this.groupBox1.Controls.Add(this.comboBox4);
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(22, 190);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(361, 151);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Neighbors";
+            this.eastComboBox.FormattingEnabled = true;
+            this.eastComboBox.Location = new System.Drawing.Point(93, 83);
+            this.eastComboBox.Name = "eastComboBox";
+            this.eastComboBox.Size = new System.Drawing.Size(243, 24);
+            this.eastComboBox.TabIndex = 10;
             // 
-            // label6
+            // southComboBox
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 27);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 17);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "North:";
+            this.southComboBox.FormattingEnabled = true;
+            this.southComboBox.Location = new System.Drawing.Point(93, 53);
+            this.southComboBox.Name = "southComboBox";
+            this.southComboBox.Size = new System.Drawing.Size(243, 24);
+            this.southComboBox.TabIndex = 9;
             // 
-            // label7
+            // northComboBox
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 120);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 17);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "West:";
+            this.northComboBox.FormattingEnabled = true;
+            this.northComboBox.Location = new System.Drawing.Point(93, 24);
+            this.northComboBox.Name = "northComboBox";
+            this.northComboBox.Size = new System.Drawing.Size(243, 24);
+            this.northComboBox.TabIndex = 5;
             // 
-            // label8
+            // southLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 88);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(40, 17);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "East:";
+            this.southLabel.AutoSize = true;
+            this.southLabel.Location = new System.Drawing.Point(22, 56);
+            this.southLabel.Name = "southLabel";
+            this.southLabel.Size = new System.Drawing.Size(49, 17);
+            this.southLabel.TabIndex = 8;
+            this.southLabel.Text = "South:";
+            this.southLabel.Click += new System.EventHandler(this.label9_Click);
             // 
-            // label9
+            // eastLabel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(22, 56);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 17);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "South:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+            this.eastLabel.AutoSize = true;
+            this.eastLabel.Location = new System.Drawing.Point(22, 88);
+            this.eastLabel.Name = "eastLabel";
+            this.eastLabel.Size = new System.Drawing.Size(40, 17);
+            this.eastLabel.TabIndex = 7;
+            this.eastLabel.Text = "East:";
             // 
-            // comboBox1
+            // westLabel
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(93, 24);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(243, 24);
-            this.comboBox1.TabIndex = 5;
+            this.westLabel.AutoSize = true;
+            this.westLabel.Location = new System.Drawing.Point(22, 120);
+            this.westLabel.Name = "westLabel";
+            this.westLabel.Size = new System.Drawing.Size(44, 17);
+            this.westLabel.TabIndex = 6;
+            this.westLabel.Text = "West:";
             // 
-            // comboBox2
+            // northLlabel
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(93, 53);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(243, 24);
-            this.comboBox2.TabIndex = 9;
+            this.northLlabel.AutoSize = true;
+            this.northLlabel.Location = new System.Drawing.Point(22, 27);
+            this.northLlabel.Name = "northLlabel";
+            this.northLlabel.Size = new System.Drawing.Size(47, 17);
+            this.northLlabel.TabIndex = 5;
+            this.northLlabel.Text = "North:";
             // 
-            // comboBox3
+            // descriptionTextBox
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(93, 83);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(243, 24);
-            this.comboBox3.TabIndex = 10;
+            this.descriptionTextBox.Location = new System.Drawing.Point(22, 88);
+            this.descriptionTextBox.Multiline = true;
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.Size = new System.Drawing.Size(361, 84);
+            this.descriptionTextBox.TabIndex = 3;
             // 
-            // comboBox4
+            // roomNameTextBox
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(93, 113);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(243, 24);
-            this.comboBox4.TabIndex = 11;
+            this.roomNameTextBox.Location = new System.Drawing.Point(115, 23);
+            this.roomNameTextBox.Name = "roomNameTextBox";
+            this.roomNameTextBox.Size = new System.Drawing.Size(268, 22);
+            this.roomNameTextBox.TabIndex = 2;
             // 
-            // label10
+            // descriptionLabel
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(26, 354);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(45, 17);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Items:";
+            this.descriptionLabel.AutoSize = true;
+            this.descriptionLabel.Location = new System.Drawing.Point(19, 63);
+            this.descriptionLabel.Name = "descriptionLabel";
+            this.descriptionLabel.Size = new System.Drawing.Size(83, 17);
+            this.descriptionLabel.TabIndex = 1;
+            this.descriptionLabel.Text = "Description:";
             // 
-            // textBox6
+            // roomNameLabel
             // 
-            this.textBox6.Location = new System.Drawing.Point(77, 347);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(306, 53);
-            this.textBox6.TabIndex = 6;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(9, 35);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(177, 24);
-            this.comboBox5.TabIndex = 12;
+            this.roomNameLabel.AutoSize = true;
+            this.roomNameLabel.Location = new System.Drawing.Point(19, 25);
+            this.roomNameLabel.Name = "roomNameLabel";
+            this.roomNameLabel.Size = new System.Drawing.Size(90, 17);
+            this.roomNameLabel.TabIndex = 0;
+            this.roomNameLabel.Text = "Room Name:";
             // 
             // ZorkBuilderForm
             // 
@@ -520,13 +520,13 @@ namespace Zork.Builder
             this.startTabPage.PerformLayout();
             this.welcomeTabPage.ResumeLayout(false);
             this.welcomeTabPage.PerformLayout();
-            this.exitMessagePage.ResumeLayout(false);
-            this.exitMessagePage.PerformLayout();
+            this.exitTabPage.ResumeLayout(false);
+            this.exitTabPage.PerformLayout();
             this.roomsGroupBox.ResumeLayout(false);
             this.roomInfoGroupBox.ResumeLayout(false);
             this.roomInfoGroupBox.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.neighborsGroupBox.ResumeLayout(false);
+            this.neighborsGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -554,30 +554,30 @@ namespace Zork.Builder
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage startTabPage;
         private System.Windows.Forms.TabPage welcomeTabPage;
-        private System.Windows.Forms.TabPage exitMessagePage;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TabPage exitTabPage;
+        private System.Windows.Forms.TextBox welcomTextBox;
+        private System.Windows.Forms.TextBox exitTextBox;
         private System.Windows.Forms.ListBox roomsListBox;
         private System.Windows.Forms.GroupBox roomsGroupBox;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button removeRoomButton;
         private System.Windows.Forms.Button addRoomButton;
         private System.Windows.Forms.GroupBox roomInfoGroupBox;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.GroupBox neighborsGroupBox;
+        private System.Windows.Forms.Label southLabel;
+        private System.Windows.Forms.Label eastLabel;
+        private System.Windows.Forms.Label westLabel;
+        private System.Windows.Forms.Label northLlabel;
+        private System.Windows.Forms.TextBox descriptionTextBox;
+        private System.Windows.Forms.TextBox roomNameTextBox;
+        private System.Windows.Forms.Label descriptionLabel;
+        private System.Windows.Forms.Label roomNameLabel;
+        private System.Windows.Forms.ComboBox westComboBox;
+        private System.Windows.Forms.ComboBox eastComboBox;
+        private System.Windows.Forms.ComboBox southComboBox;
+        private System.Windows.Forms.ComboBox northComboBox;
+        private System.Windows.Forms.ComboBox startingLocationComboBox;
+        private System.Windows.Forms.TextBox itemsTextBox;
+        private System.Windows.Forms.Label itemsLabel;
     }
 }
 
