@@ -1,12 +1,13 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Serialization;
 
 namespace Zork
 {
-    public class World
+    public class World : INotifyPropertyChanged
     {
         public HashSet<Room> Rooms { get; set; }
 
@@ -28,5 +29,7 @@ namespace Zork
         private string StartingLocation { get; set; }
 
         private Dictionary<string, Room> mRoomsByName;
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
