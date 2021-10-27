@@ -37,20 +37,24 @@ namespace Zork.Builder.Forms
             // 
             // okayButton
             // 
-            this.okayButton.Location = new System.Drawing.Point(90, 61);
+            this.okayButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.okayButton.Enabled = false;
+            this.okayButton.Location = new System.Drawing.Point(68, 50);
+            this.okayButton.Margin = new System.Windows.Forms.Padding(2);
             this.okayButton.Name = "okayButton";
-            this.okayButton.Size = new System.Drawing.Size(75, 23);
+            this.okayButton.Size = new System.Drawing.Size(56, 19);
             this.okayButton.TabIndex = 2;
-            this.okayButton.Text = "&Okay";
+            this.okayButton.Text = "&Ok";
             this.okayButton.UseVisualStyleBackColor = true;
             this.okayButton.Click += new System.EventHandler(this.okayButton_Click);
             // 
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(179, 61);
+            this.cancelButton.Location = new System.Drawing.Point(134, 50);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.Size = new System.Drawing.Size(56, 19);
             this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "&Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -58,33 +62,37 @@ namespace Zork.Builder.Forms
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(12, 33);
+            this.nameTextBox.Location = new System.Drawing.Point(9, 27);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(242, 22);
+            this.nameTextBox.Size = new System.Drawing.Size(182, 20);
             this.nameTextBox.TabIndex = 1;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(13, 13);
+            this.nameLabel.Location = new System.Drawing.Point(10, 11);
+            this.nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(45, 17);
+            this.nameLabel.Size = new System.Drawing.Size(35, 13);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "&Name";
             // 
             // AddRoomForm
             // 
             this.AcceptButton = this.okayButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(269, 101);
+            this.ClientSize = new System.Drawing.Size(202, 82);
             this.ControlBox = false;
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okayButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddRoomForm";
