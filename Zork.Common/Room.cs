@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System;
 
 namespace Zork
 {
-    public class Room : INotifyPropertyChanged
+    public class Room : INotifyPropertyChanged, IEquatable<Room>
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         [JsonProperty(Order = 1)]
         public string Name { get; private set; }
         [JsonProperty(Order = 2)]
@@ -35,7 +38,6 @@ namespace Zork
 
         public static bool operator !=(Room lhs, Room rhs) => !(lhs == rhs);
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public override bool Equals(object obj) => obj is Room room && this == room;
 
@@ -45,18 +47,38 @@ namespace Zork
 
         public override int GetHashCode() => Name.GetHashCode();
 
-        public void UpdateNeighbors(World world)
-        //{
-        //    Neighbors = new Dictionary<Directions>();
-        //    foreach (var pair in NeighborNames)
-        //    {
+        //[JsonIgnore]
+        //public Room DefaultRoom { get; set; }
 
-        //    }
+        //[JsonProperty(PropertyName = "DefaultRoom")]
+        //public string DefaultRoomName { get; set; }
+
+        //[JsonProperty(PropertyName = "Inventory")]
+        //private List<string> InventoryNames { get; set; }
+
+        //[JsonIgnore]
+        //public List<Room> Inventory { get; set; }
+
+        //private Dictionary<Directions, string> DirectionNames { get; set; }
+
+        //public void BuildInventoryFromNames(List<Room> rooms)
+        //{
+        //    DefaultRoom = rooms.Find(i => i.Name.Equals(DefaultRoomName, StringComparison.InvariantCultureIgnoreCase));
+
+        //    Inventory = (from itemName in InventoryNames
+        //                 let item = rooms.Find(i => i.Name.Equals(itemName, StringComparison.InvariantCultureIgnoreCase))
+        //                 where item != null
+        //                 select item).ToList();
+
+        //    InventoryNames.Clear();
         //}
+
+        public void UpdateNeighbors(World world)
+
             => Neighbors = (from entry in NeighborNames
-                            let room = world.RoomsByName.GetValueOrDefault(entry.Value)
+                            let room = world.RoomsByName.GetValueOrDefault(entry.Value) /*rooms.Find(i => i.Name.Equals(entry.Value, StringComparison.InvariantCultureIgnoreCase))*/
                             where room != null
                             select (Direction: entry.Key, Room: room))
-                                                                 .ToDictionary(pair => pair.Direction, pair => pair.Room);
+                            .ToDictionary(pair => pair.Direction, pair => pair.Room);
     }
 }

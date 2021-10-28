@@ -9,7 +9,9 @@ namespace Zork
 {
     public class World : INotifyPropertyChanged
     {
-        public HashSet<Room> Rooms { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public List<Room> Rooms { get; set; }
 
         [JsonIgnore]
         public ReadOnlyDictionary<string, Room> RoomsByName => new ReadOnlyDictionary<string, Room>(mRoomsByName);
@@ -29,7 +31,5 @@ namespace Zork
         private string StartingLocation { get; set; }
 
         private Dictionary<string, Room> mRoomsByName;
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

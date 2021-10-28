@@ -9,27 +9,27 @@ namespace Zork.Builder
 {
     public partial class ZorkBuilderForm : Form
     {
-        private bool WorldIsLoaded
-        {
-            get
-            {
-                return _viewModel.WorldIsLoaded;
-            }
-            set
-            {
-                _viewModel.WorldIsLoaded = value;
+        //private bool WorldIsLoaded
+        //{
+        //    get
+        //    {
+        //        return _viewModel.WorldIsLoaded;
+        //    }
+        //    set
+        //    {
+        //        _viewModel.WorldIsLoaded = value;
 
-                foreach (var control in _worldDependentControls)
-                {
-                    control.Enabled = _viewModel.WorldIsLoaded;
-                }
-                foreach (var menuItem in _worldDependentMenuItems)
-                {
-                    menuItem.Enabled = _viewModel.WorldIsLoaded;
-                }
+        //        foreach (var control in _worldDependentControls)
+        //        {
+        //            control.Enabled = _viewModel.WorldIsLoaded;
+        //        }
+        //        foreach (var menuItem in _worldDependentMenuItems)
+        //        {
+        //            menuItem.Enabled = _viewModel.WorldIsLoaded;
+        //        }
 
-            }
-        }
+        //    }
+        //}
         private WorldViewModel ViewModel 
         {
             get => _viewModel;
@@ -59,7 +59,7 @@ namespace Zork.Builder
 
             };
 
-            WorldIsLoaded = false;
+            //WorldIsLoaded = false;
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)

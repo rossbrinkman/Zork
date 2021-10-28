@@ -20,7 +20,7 @@ namespace Zork.Builder
                     _world = value;
                     if (_world != null)
                     {
-                        Rooms = new BindingList<Room>(_world.Rooms);
+                       Rooms = new BindingList<Room>(_world.Rooms);
                     }
                     else
                     {
