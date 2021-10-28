@@ -3,24 +3,24 @@ using System.ComponentModel;
 
 namespace Zork.Builder
 {
-    internal class WorldViewModel : INotifyPropertyChanged
+    internal class GameViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public bool WorldIsLoaded { get; set; }
+        public bool GameIsLoaded { get; set; }
 
         public BindingList<Room> Rooms { get; set; }
 
-        public World World
+        public Game Game
         {
             set
             {
-                if (_world != value)
+                if (_game != value)
                 {
-                    _world = value;
-                    if (_world != null)
+                    _game = value;
+                    if (_game != null)
                     {
-                       Rooms = new BindingList<Room>(_world.Rooms);
+                       Rooms = new BindingList<Room>(_game.World.Rooms);
                     }
                     else
                     {
@@ -30,9 +30,9 @@ namespace Zork.Builder
             }
         }
 
-        public WorldViewModel(World world = null) => World = world;
+        public GameViewModel(Game game = null) => Game = game;
 
-        private World _world;
+        private Game _game;
 
     }
 }

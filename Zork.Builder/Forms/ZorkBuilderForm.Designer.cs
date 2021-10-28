@@ -78,8 +78,9 @@ namespace Zork.Builder
             System.Windows.Forms.Label descriptionLabel;
             System.Windows.Forms.Label roomNameLabel;
             this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.worldViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gameViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.neighborsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             startingLocationLabel = new System.Windows.Forms.Label();
             welcomeMessageLabel = new System.Windows.Forms.Label();
             exitMessageLabel = new System.Windows.Forms.Label();
@@ -133,10 +134,11 @@ namespace Zork.Builder
             welcomeTabPage.SuspendLayout();
             exitTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.worldViewModelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameViewModelBindingSource)).BeginInit();
             roomsGroupBox.SuspendLayout();
             roomInfoGroupBox.SuspendLayout();
             neighborsGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.neighborsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // startingLocationLabel
@@ -175,7 +177,7 @@ namespace Zork.Builder
             menuStrip1.Location = new System.Drawing.Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            menuStrip1.Size = new System.Drawing.Size(657, 30);
+            menuStrip1.Size = new System.Drawing.Size(657, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -191,7 +193,7 @@ namespace Zork.Builder
             fileSeparatorStripMenuItem2,
             exitToolStripMenuItem});
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
+            fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             fileToolStripMenuItem.Text = "&File";
             // 
             // newToolStripMenuItem
@@ -256,7 +258,7 @@ namespace Zork.Builder
             copyToolStripMenuItem,
             pasteToolStripMenuItem});
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new System.Drawing.Size(49, 26);
+            editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
             editToolStripMenuItem.Text = "Edit";
             // 
             // undoToolStripMenuItem
@@ -390,11 +392,11 @@ namespace Zork.Builder
             // roomsBindingSource
             // 
             this.roomsBindingSource.DataMember = "Rooms";
-            this.roomsBindingSource.DataSource = this.worldViewModelBindingSource;
+            this.roomsBindingSource.DataSource = this.gameViewModelBindingSource;
             // 
-            // worldViewModelBindingSource
+            // gameViewModelBindingSource
             // 
-            this.worldViewModelBindingSource.DataSource = typeof(Zork.Builder.WorldViewModel);
+            this.gameViewModelBindingSource.DataSource = typeof(Zork.Builder.GameViewModel);
             // 
             // roomsGroupBox
             // 
@@ -515,12 +517,14 @@ namespace Zork.Builder
             // 
             // northComboBox
             // 
+            northComboBox.DataSource = this.neighborsBindingSource;
             northComboBox.FormattingEnabled = true;
             northComboBox.Location = new System.Drawing.Point(93, 25);
             northComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             northComboBox.Name = "northComboBox";
             northComboBox.Size = new System.Drawing.Size(243, 24);
             northComboBox.TabIndex = 5;
+            northComboBox.ValueMember = "Key";
             // 
             // southLabel
             // 
@@ -560,6 +564,7 @@ namespace Zork.Builder
             // 
             // descriptionTextBox
             // 
+            descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomsBindingSource, "Description", true));
             descriptionTextBox.Location = new System.Drawing.Point(21, 89);
             descriptionTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             descriptionTextBox.Multiline = true;
@@ -569,6 +574,7 @@ namespace Zork.Builder
             // 
             // roomNameTextBox
             // 
+            roomNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomsBindingSource, "Name", true));
             roomNameTextBox.Location = new System.Drawing.Point(115, 23);
             roomNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             roomNameTextBox.Name = "roomNameTextBox";
@@ -597,6 +603,11 @@ namespace Zork.Builder
             // 
             this.openFileDialog.Filter = "JSON Files|*.json";
             // 
+            // neighborsBindingSource
+            // 
+            this.neighborsBindingSource.DataMember = "Neighbors";
+            this.neighborsBindingSource.DataSource = this.roomsBindingSource;
+            // 
             // ZorkBuilderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -622,12 +633,13 @@ namespace Zork.Builder
             exitTabPage.ResumeLayout(false);
             exitTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.worldViewModelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameViewModelBindingSource)).EndInit();
             roomsGroupBox.ResumeLayout(false);
             roomInfoGroupBox.ResumeLayout(false);
             roomInfoGroupBox.PerformLayout();
             neighborsGroupBox.ResumeLayout(false);
             neighborsGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.neighborsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -636,7 +648,8 @@ namespace Zork.Builder
         #endregion
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.BindingSource roomsBindingSource;
-        private System.Windows.Forms.BindingSource worldViewModelBindingSource;
+        private System.Windows.Forms.BindingSource gameViewModelBindingSource;
+        private System.Windows.Forms.BindingSource neighborsBindingSource;
     }
 }
 

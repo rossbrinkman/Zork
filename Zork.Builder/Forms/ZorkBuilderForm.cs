@@ -30,7 +30,7 @@ namespace Zork.Builder
 
         //    }
         //}
-        private WorldViewModel ViewModel 
+        private GameViewModel ViewModel 
         {
             get => _viewModel;
             set
@@ -38,7 +38,7 @@ namespace Zork.Builder
                 if(_viewModel != value)
                 {
                     _viewModel = value;
-                    worldViewModelBindingSource.DataSource = _viewModel;
+                    gameViewModelBindingSource.DataSource = _viewModel;
                 }
             }
         }
@@ -46,7 +46,7 @@ namespace Zork.Builder
         public ZorkBuilderForm()
         {
             InitializeComponent();
-            ViewModel = new WorldViewModel();
+            ViewModel = new GameViewModel();
 
             _worldDependentControls = new Control[]
             {
@@ -69,8 +69,8 @@ namespace Zork.Builder
                 try
                 {
                     string jsonString = File.ReadAllText(openFileDialog.FileName);
-                    ViewModel.World = JsonConvert.DeserializeObject<World>(jsonString);
-                    ViewModel.WorldIsLoaded = true;
+                    ViewModel.Game = JsonConvert.DeserializeObject<Game>(jsonString);
+                    ViewModel.GameIsLoaded = true;
                 }
                 catch (Exception ex)
                 {
@@ -84,7 +84,7 @@ namespace Zork.Builder
             Close();
         }
 
-        private WorldViewModel _viewModel;
+        private GameViewModel _viewModel;
         private Control[] _worldDependentControls;
         private MenuItem[] _worldDependentMenuItems;
 
