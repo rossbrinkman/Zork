@@ -39,7 +39,7 @@ namespace Zork.Builder.Forms
             // 
             this.okayButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.okayButton.Enabled = false;
-            this.okayButton.Location = new System.Drawing.Point(68, 50);
+            this.okayButton.Location = new System.Drawing.Point(71, 50);
             this.okayButton.Margin = new System.Windows.Forms.Padding(2);
             this.okayButton.Name = "okayButton";
             this.okayButton.Size = new System.Drawing.Size(56, 19);

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Zork.Builder
 {
@@ -31,6 +33,30 @@ namespace Zork.Builder
         }
 
         public GameViewModel(Game game = null) => Game = game;
+
+        public void SaveGame(string filename)
+        {
+            if (!GameIsLoaded)
+            {
+                throw new InvalidOperationException("No game loaded.");
+            }
+
+            if (string.IsNullOrWhiteSpace(filename))
+            {
+                throw new InvalidProgramException("Invalid filename.");
+            }
+
+            JsonSerializer serializer = new JsonSerializer
+            {
+                Formatting = Formatting.Indented
+            };
+
+            using (StreamWriter streamWriter = new StreamWriter(filename))
+            using (JsonWriter jsonWriter = new JsonTextWriter(streamWriter))
+            {
+                serializer.Serialize(jsonWriter, _game);
+            }
+        }
 
         private Game _game;
 

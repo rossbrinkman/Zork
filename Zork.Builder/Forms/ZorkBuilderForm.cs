@@ -9,27 +9,28 @@ namespace Zork.Builder
 {
     public partial class ZorkBuilderForm : Form
     {
-        //private bool WorldIsLoaded
-        //{
-        //    get
-        //    {
-        //        return _viewModel.WorldIsLoaded;
-        //    }
-        //    set
-        //    {
-        //        _viewModel.WorldIsLoaded = value;
+        private bool GameIsLoaded
+        {
+            get
+            {
+                return _viewModel.GameIsLoaded;
+            }
+            set
+            {
+                _viewModel.GameIsLoaded = value;
 
-        //        foreach (var control in _worldDependentControls)
-        //        {
-        //            control.Enabled = _viewModel.WorldIsLoaded;
-        //        }
-        //        foreach (var menuItem in _worldDependentMenuItems)
-        //        {
-        //            menuItem.Enabled = _viewModel.WorldIsLoaded;
-        //        }
+                foreach (var control in _worldDependentControls)
+                {
+                    control.Enabled = _viewModel.GameIsLoaded;
+                }
+                foreach (var menuItem in _worldDependentMenuItems)
+                {
+                    menuItem.Enabled = _viewModel.GameIsLoaded;
+                }
 
-        //    }
-        //}
+            }
+        }
+
         private GameViewModel ViewModel 
         {
             get => _viewModel;
@@ -50,16 +51,17 @@ namespace Zork.Builder
 
             _worldDependentControls = new Control[]
             {
-                //addRoomButton,
-                //deleteRoomButton
+                addRoomButton,
+                removeRoomButton
             };
 
-            _worldDependentMenuItems = new MenuItem[]
+            _worldDependentMenuItems = new ToolStripMenuItem[]
             {
-
+                saveToolStripMenuItem,
+                saveAsToolStripMenuItem
             };
 
-            //WorldIsLoaded = false;
+            GameIsLoaded = false;
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,13 +72,19 @@ namespace Zork.Builder
                 {
                     string jsonString = File.ReadAllText(openFileDialog.FileName);
                     ViewModel.Game = JsonConvert.DeserializeObject<Game>(jsonString);
-                    ViewModel.GameIsLoaded = true;
+                    GameIsLoaded = true;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Zork Builder", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string filename = "TestFile.json";
+            _viewModel.SaveGame(filename);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -86,7 +94,7 @@ namespace Zork.Builder
 
         private GameViewModel _viewModel;
         private Control[] _worldDependentControls;
-        private MenuItem[] _worldDependentMenuItems;
+        private ToolStripMenuItem[] _worldDependentMenuItems;
 
         private void addRoomButton_Click(object sender, EventArgs e)
         {
@@ -106,6 +114,11 @@ namespace Zork.Builder
                     }
                 }
             }
+        }
+
+        private void removeRoomButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not yet implemented.");
         }
     }
 }
