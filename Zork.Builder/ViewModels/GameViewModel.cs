@@ -1,9 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
 using System.IO;
+using Zork.Builder;
 using Newtonsoft.Json;
 
-namespace Zork.Builder
+namespace Zork.Builder.ViewModels
 {
     internal class GameViewModel : INotifyPropertyChanged
     {
@@ -11,7 +12,20 @@ namespace Zork.Builder
 
         public bool GameIsLoaded { get; set; }
 
-        public BindingList<Room> Rooms { get; set; }
+        //public BindingSource World { get; set; };
+
+        public BindingList<Room> Rooms
+        {
+            get => rooms;
+            set
+            {
+                if (rooms != value)
+                {
+                    rooms = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Rooms)));
+                }
+            }
+        }
 
         public Game Game
         {
@@ -22,11 +36,13 @@ namespace Zork.Builder
                     _game = value;
                     if (_game != null)
                     {
-                       Rooms = new BindingList<Room>(_game.World.Rooms);
+                        Rooms = new BindingList<Room>(_game.World.Rooms);
+                        //startingLocationComboBox.DataSource = _game.World.StartingLocation;
                     }
                     else
                     {
                         Rooms = new BindingList<Room>(Array.Empty<Room>());
+                        //World = new BindingSource(_game.World);
                     }
                 }
             }
@@ -59,6 +75,6 @@ namespace Zork.Builder
         }
 
         private Game _game;
-
+        private BindingList<Room> rooms;
     }
 }

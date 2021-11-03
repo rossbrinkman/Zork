@@ -28,7 +28,7 @@ namespace Zork
         }
 
         [JsonProperty]
-        private string StartingLocation { get; set; }
+        public string StartingLocation { get; set; }
 
         private Dictionary<string, Room> mRoomsByName;
     }

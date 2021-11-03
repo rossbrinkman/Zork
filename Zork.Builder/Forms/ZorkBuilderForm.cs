@@ -4,11 +4,15 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Zork.Builder.Forms;
+using Zork.Builder.ViewModels;
+using System.Reflection;
 
 namespace Zork.Builder
 {
     public partial class ZorkBuilderForm : Form
     {
+        public static string AssemblyTitle = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyTitleAttribute>().Title;
+
         private bool GameIsLoaded
         {
             get
@@ -111,6 +115,7 @@ namespace Zork.Builder
                     {
                         Room room = new Room(addRoomForm.RoomName);
                         ViewModel.Rooms.Add(room);
+                        roomsListBox.SelectedItem = ViewModel.Rooms.LastOrDefault();
                     }
                 }
             }
@@ -118,7 +123,16 @@ namespace Zork.Builder
 
         private void removeRoomButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not yet implemented.");
+            if (MessageBox.Show("Delete this Room?", AssemblyTitle, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ViewModel.Rooms.Remove((Room)roomsListBox.SelectedItem);
+                roomsListBox.SelectedItem = ViewModel.Rooms.FirstOrDefault();
+            }
+        }
+
+        private void gameViewModelBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -39,10 +39,10 @@ namespace Zork.Builder.Forms
             // 
             this.okayButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.okayButton.Enabled = false;
-            this.okayButton.Location = new System.Drawing.Point(71, 50);
-            this.okayButton.Margin = new System.Windows.Forms.Padding(2);
+            this.okayButton.Location = new System.Drawing.Point(95, 62);
+            this.okayButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.okayButton.Name = "okayButton";
-            this.okayButton.Size = new System.Drawing.Size(56, 19);
+            this.okayButton.Size = new System.Drawing.Size(75, 23);
             this.okayButton.TabIndex = 2;
             this.okayButton.Text = "&Ok";
             this.okayButton.UseVisualStyleBackColor = true;
@@ -51,10 +51,10 @@ namespace Zork.Builder.Forms
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(134, 50);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
+            this.cancelButton.Location = new System.Drawing.Point(179, 62);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(56, 19);
+            this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "&Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -62,39 +62,40 @@ namespace Zork.Builder.Forms
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(9, 27);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.nameTextBox.Location = new System.Drawing.Point(12, 33);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(182, 20);
+            this.nameTextBox.Size = new System.Drawing.Size(241, 22);
             this.nameTextBox.TabIndex = 1;
             this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(10, 11);
-            this.nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.nameLabel.Location = new System.Drawing.Point(13, 14);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(35, 13);
+            this.nameLabel.Size = new System.Drawing.Size(45, 17);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "&Name";
             // 
             // AddRoomForm
             // 
             this.AcceptButton = this.okayButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(202, 82);
+            this.ClientSize = new System.Drawing.Size(269, 101);
             this.ControlBox = false;
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okayButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(287, 148);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(287, 148);
             this.Name = "AddRoomForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
