@@ -12,6 +12,7 @@ namespace Zork.Builder
     public partial class ZorkBuilderForm : Form
     {
         public static string AssemblyTitle = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyTitleAttribute>().Title;
+        public string currentJsonFileName;
 
         private bool GameIsLoaded
         {
@@ -72,6 +73,13 @@ namespace Zork.Builder
         {
             if(openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                if (currentJsonFileName == openFileDialog.FileName)
+                {
+                    MessageBox.Show("File is already open", "Zork Builder", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                currentJsonFileName = openFileDialog.FileName;
                 try
                 {
                     string jsonString = File.ReadAllText(openFileDialog.FileName);
@@ -82,12 +90,15 @@ namespace Zork.Builder
                 {
                     MessageBox.Show(ex.Message, "Zork Builder", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                Binding welcomeBinding = welcomeTextBox.DataBindings.Add("Text", _viewModel.Game.World, "WelcomeMessage", true, DataSourceUpdateMode.OnPropertyChanged);
+                Binding exitBinding = exitTextBox.DataBindings.Add("Text", _viewModel.Game.World, "ExitMessage", true, DataSourceUpdateMode.OnPropertyChanged);
             }
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string filename = "TestFile.json";
+            string filename = currentJsonFileName;
             _viewModel.SaveGame(filename);
         }
 
@@ -133,6 +144,28 @@ namespace Zork.Builder
         private void gameViewModelBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //try
+                //{
+                //    string jsonString = File.ReadAllText(openFileDialog.FileName);
+                //    ViewModel.Game = JsonConvert.DeserializeObject<Game>(jsonString);
+                //    GameIsLoaded = true;
+                //}
+                //catch (Exception ex)
+                //{
+                //    MessageBox.Show(ex.Message, "Zork Builder", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
+            }
         }
     }
 }

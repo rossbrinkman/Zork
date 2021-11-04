@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.IO;
 using Zork.Builder;
 using Newtonsoft.Json;
+using System.Windows.Forms;
 
 namespace Zork.Builder.ViewModels
 {
@@ -12,7 +13,7 @@ namespace Zork.Builder.ViewModels
 
         public bool GameIsLoaded { get; set; }
 
-        //public BindingSource World { get; set; };
+        public string WelcomeMessage { get; set; }
 
         public BindingList<Room> Rooms
         {
@@ -29,6 +30,7 @@ namespace Zork.Builder.ViewModels
 
         public Game Game
         {
+            get => _game;
             set
             {
                 if (_game != value)
@@ -37,12 +39,12 @@ namespace Zork.Builder.ViewModels
                     if (_game != null)
                     {
                         Rooms = new BindingList<Room>(_game.World.Rooms);
-                        //startingLocationComboBox.DataSource = _game.World.StartingLocation;
+                        WelcomeMessage = _game.World.WelcomeMessage;
                     }
                     else
                     {
                         Rooms = new BindingList<Room>(Array.Empty<Room>());
-                        //World = new BindingSource(_game.World);
+                        WelcomeMessage = "";
                     }
                 }
             }

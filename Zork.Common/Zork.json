@@ -1,6 +1,8 @@
 {
   "World": {
     "StartingLocation": "West of House",
+    "WelcomeMessage": "Welcome to Zork!",
+    "ExitMessage":  "Thanks for playing!",
     "Rooms": [
       {
         "Name": "West of House",

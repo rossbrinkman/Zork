@@ -30,6 +30,12 @@ namespace Zork
         [JsonProperty]
         public string StartingLocation { get; set; }
 
+        [JsonProperty]
+        public string WelcomeMessage { get; set; }
+        
+        [JsonProperty]
+        public string ExitMessage { get; set; }
+
         private Dictionary<string, Room> mRoomsByName;
     }
 }
