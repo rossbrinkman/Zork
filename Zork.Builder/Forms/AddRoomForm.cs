@@ -12,16 +12,6 @@ namespace Zork.Builder.Forms
             InitializeComponent();
         }
 
-        private void okayButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void nameTextBox_TextChanged(object sender, EventArgs e)
         {
             okayButton.Enabled = !string.IsNullOrWhiteSpace(RoomName);

@@ -18,6 +18,5 @@ namespace Zork
         {
             RoomsFileName = 0
         }
-
     }
 }

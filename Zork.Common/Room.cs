@@ -16,10 +16,13 @@ namespace Zork
         public string Description { get; set; }
 
         [JsonProperty(PropertyName = "Neighbors", Order = 3)]
-        private Dictionary<Directions, string> NeighborNames { get; set; }
+        public Dictionary<Directions, string> NeighborNames { get; set; }
 
         [JsonIgnore]
-        public Dictionary<Directions, Room> Neighbors { get; private set; }
+        public Dictionary<Directions, Room> Neighbors { get; set; }
+
+        [JsonIgnore]
+        public List<Room> Inventory { get; set; }
 
         public static bool operator ==(Room lhs, Room rhs)
         {
@@ -34,10 +37,10 @@ namespace Zork
         public Room(string name = null)
         {
             Name = name;
+            Inventory = new List<Room>();
         }
 
         public static bool operator !=(Room lhs, Room rhs) => !(lhs == rhs);
-
 
         public override bool Equals(object obj) => obj is Room room && this == room;
 
@@ -46,37 +49,20 @@ namespace Zork
         public override string ToString() => Name;
 
         public override int GetHashCode() => Name.GetHashCode();
-
-        //[JsonIgnore]
-        //public Room DefaultRoom { get; set; }
-
-        //[JsonProperty(PropertyName = "DefaultRoom")]
-        //public string DefaultRoomName { get; set; }
-
-        //[JsonProperty(PropertyName = "Inventory")]
-        //private List<string> InventoryNames { get; set; }
-
-        //[JsonIgnore]
-        //public List<Room> Inventory { get; set; }
-
-        //private Dictionary<Directions, string> DirectionNames { get; set; }
-
-        //public void BuildInventoryFromNames(List<Room> rooms)
-        //{
-        //    DefaultRoom = rooms.Find(i => i.Name.Equals(DefaultRoomName, StringComparison.InvariantCultureIgnoreCase));
-
-        //    Inventory = (from itemName in InventoryNames
-        //                 let item = rooms.Find(i => i.Name.Equals(itemName, StringComparison.InvariantCultureIgnoreCase))
-        //                 where item != null
-        //                 select item).ToList();
-
-        //    InventoryNames.Clear();
-        //}
+       
+        public void BuildInventoryFromNames(List<Room> rooms)
+        {
+            foreach (Room room in rooms)
+            {
+                if (room.Name != Name)
+                    Inventory.Add(room);
+            }
+        }
 
         public void UpdateNeighbors(World world)
 
             => Neighbors = (from entry in NeighborNames
-                            let room = world.RoomsByName.GetValueOrDefault(entry.Value) /*rooms.Find(i => i.Name.Equals(entry.Value, StringComparison.InvariantCultureIgnoreCase))*/
+                            let room = world.RoomsByName.GetValueOrDefault(entry.Value)
                             where room != null
                             select (Direction: entry.Key, Room: room))
                             .ToDictionary(pair => pair.Direction, pair => pair.Room);

@@ -46,7 +46,6 @@ namespace Zork.Builder.Forms
             this.okayButton.TabIndex = 2;
             this.okayButton.Text = "&Ok";
             this.okayButton.UseVisualStyleBackColor = true;
-            this.okayButton.Click += new System.EventHandler(this.okayButton_Click);
             // 
             // cancelButton
             // 
@@ -58,7 +57,6 @@ namespace Zork.Builder.Forms
             this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "&Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // nameTextBox
             // 

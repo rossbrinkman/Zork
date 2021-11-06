@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Zork.Common;
 
 namespace Zork.Builder.UserControls
 {
@@ -19,18 +18,28 @@ namespace Zork.Builder.UserControls
                     mRoom = value;
                     if (Room != null)
                     {
-                        var rooms = new List<Room>((IEnumerable<Room>)mRoom.Neighbors);
-                        rooms.Insert(0, NoNeighbor);
-                        neighborComboBox.SelectedIndexChanged -= neighborComboBox_SelectedIndexChanged;
-                        neighborComboBox.DataSource = rooms;
+                        List<Room> roomsList = new List<Room>(mRoom.Inventory);
 
-                        if (mRoom.Neighbors.TryGetValue(Direction, out Room neighbor))
-                        {
-                            Neighbor = neighbor;
+                        roomsList.Insert(0, NoNeighbor);
+                        neighborComboBox.SelectedIndexChanged -= neighborComboBox_SelectedIndexChanged;
+                        neighborComboBox.DataSource = roomsList;
+
+                        if (mRoom.Neighbors != null)
+                        { 
+                            if (mRoom.Neighbors.ContainsKey(Direction))
+                            {
+                                Room neighbor = mRoom.Neighbors[Direction];
+                                Neighbor = neighbor;
+                            }
+                            else
+                            {
+                                Neighbor = NoNeighbor;
+                            }
                         }
                         else
                         {
-                            Neighbor = NoNeighbor;
+                            mRoom.Neighbors = new Dictionary<Directions, Room>();
+                            mRoom.NeighborNames = new Dictionary<Directions, string>();
                         }
 
                         neighborComboBox.SelectedIndexChanged += neighborComboBox_SelectedIndexChanged;
@@ -78,10 +87,12 @@ namespace Zork.Builder.UserControls
                 if (selectedRoom == NoNeighbor)
                 {
                     mRoom.Neighbors.Remove(Direction);
+                    mRoom.NeighborNames.Remove(Direction);
                 }
                 else
                 {
                     mRoom.Neighbors[Direction] = selectedRoom;
+                    mRoom.NeighborNames[Direction] = selectedRoom.Name;
                 }
             }
         }

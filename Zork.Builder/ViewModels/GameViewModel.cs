@@ -1,9 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.IO;
-using Zork.Builder;
 using Newtonsoft.Json;
-using System.Windows.Forms;
 
 namespace Zork.Builder.ViewModels
 {
@@ -15,18 +13,7 @@ namespace Zork.Builder.ViewModels
 
         public string WelcomeMessage { get; set; }
 
-        public BindingList<Room> Rooms
-        {
-            get => rooms;
-            set
-            {
-                if (rooms != value)
-                {
-                    rooms = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Rooms)));
-                }
-            }
-        }
+        public BindingList<Room> Rooms { get; set; }
 
         public Game Game
         {
@@ -39,12 +26,10 @@ namespace Zork.Builder.ViewModels
                     if (_game != null)
                     {
                         Rooms = new BindingList<Room>(_game.World.Rooms);
-                        WelcomeMessage = _game.World.WelcomeMessage;
                     }
                     else
                     {
                         Rooms = new BindingList<Room>(Array.Empty<Room>());
-                        WelcomeMessage = "";
                     }
                 }
             }
@@ -77,6 +62,5 @@ namespace Zork.Builder.ViewModels
         }
 
         private Game _game;
-        private BindingList<Room> rooms;
     }
 }

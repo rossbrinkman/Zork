@@ -24,7 +24,10 @@ namespace Zork
             mRoomsByName = Rooms.ToDictionary(room => room.Name, room => room);
 
             foreach (Room room in Rooms)
+            {
+                room.BuildInventoryFromNames(Rooms);
                 room.UpdateNeighbors(this);
+            }
         }
 
         [JsonProperty]
