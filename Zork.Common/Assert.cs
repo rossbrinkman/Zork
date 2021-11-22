@@ -11,5 +11,14 @@ namespace Zork
             if (expression == false)
                 throw new Exception(message);
         }
+
+        [Conditional("DEBUG")]
+        public static void IsNotNull(object obj, string message = null)
+        {
+            if (obj is null)
+            {
+                throw new ArgumentNullException(message);
+            }
+        }
     }
 }
