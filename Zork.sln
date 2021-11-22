@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FB6F21AC-4DBB-4E4D-9D45-137D48601790}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zork", "Zork\Zork.csproj", "{91411BF7-FC98-4A1B-A134-21303C9DEAEF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zork.Common", "Zork.Common\Zork.Common.csproj", "{1DA351F5-492B-48E6-B63D-448566EA8769}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zork.Builder", "Zork.Builder\Zork.Builder.csproj", "{24B8CF8A-28BF-43E9-AA50-1303BAE3F44A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Zork.Unity\Assembly-CSharp.csproj", "{A0079709-B318-D0F0-DE0B-236529E67E2F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zork", "Zork.Console\Zork.csproj", "{FDED73BC-3C4C-4573-8F6A-9FE84B437951}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{91411BF7-FC98-4A1B-A134-21303C9DEAEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{91411BF7-FC98-4A1B-A134-21303C9DEAEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{91411BF7-FC98-4A1B-A134-21303C9DEAEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{91411BF7-FC98-4A1B-A134-21303C9DEAEF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1DA351F5-492B-48E6-B63D-448566EA8769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1DA351F5-492B-48E6-B63D-448566EA8769}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DA351F5-492B-48E6-B63D-448566EA8769}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,6 +31,10 @@ Global
 		{A0079709-B318-D0F0-DE0B-236529E67E2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0079709-B318-D0F0-DE0B-236529E67E2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0079709-B318-D0F0-DE0B-236529E67E2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDED73BC-3C4C-4573-8F6A-9FE84B437951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDED73BC-3C4C-4573-8F6A-9FE84B437951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDED73BC-3C4C-4573-8F6A-9FE84B437951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDED73BC-3C4C-4573-8F6A-9FE84B437951}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

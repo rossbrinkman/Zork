@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "D:\\School Docs\\Tools & Plugins\\Zork\\Zork\\Zork.csproj": {}
+    "D:\\School Docs\\Tools & Plugins\\Zork\\Zork.Console\\Zork.csproj": {}
   },
   "projects": {
     "D:\\School Docs\\Tools & Plugins\\Zork\\Zork.Common\\Zork.Common.csproj": {
@@ -76,14 +76,14 @@
         }
       }
     },
-    "D:\\School Docs\\Tools & Plugins\\Zork\\Zork\\Zork.csproj": {
+    "D:\\School Docs\\Tools & Plugins\\Zork\\Zork.Console\\Zork.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\School Docs\\Tools & Plugins\\Zork\\Zork\\Zork.csproj",
+        "projectUniqueName": "D:\\School Docs\\Tools & Plugins\\Zork\\Zork.Console\\Zork.csproj",
         "projectName": "Zork",
-        "projectPath": "D:\\School Docs\\Tools & Plugins\\Zork\\Zork\\Zork.csproj",
+        "projectPath": "D:\\School Docs\\Tools & Plugins\\Zork\\Zork.Console\\Zork.csproj",
         "packagesPath": "C:\\Users\\rossb\\.nuget\\packages\\",
-        "outputPath": "D:\\School Docs\\Tools & Plugins\\Zork\\Zork\\obj\\",
+        "outputPath": "D:\\School Docs\\Tools & Plugins\\Zork\\Zork.Console\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OFhBGEJufOvx9tBdx0VEgBhtaMnLR2OsLWv3wO4APQu3fU6fbONQBxflY8lBpiiphAI6WsMsA3aLRCr4xC2kQg==",
+  "dgSpecHash": "O88X3A6HDtuTPRnJvedKY/rz2P9J1Kns4kyrbhDYVL25sH0+0OwK6oh6BUXQBCJO4VchE5PaEL7GBC5MC1YvOw==",
   "success": true,
-  "projectFilePath": "D:\\School Docs\\Tools & Plugins\\Zork\\Zork\\Zork.csproj",
+  "projectFilePath": "D:\\School Docs\\Tools & Plugins\\Zork\\Zork.Console\\Zork.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rossb\\.nuget\\packages\\fody\\6.5.1\\fody.6.5.1.nupkg.sha512",
     "C:\\Users\\rossb\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.2\\microsoft.codeanalysis.analyzers.3.3.2.nupkg.sha512",
