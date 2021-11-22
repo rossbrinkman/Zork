@@ -1,0 +1,33 @@
+E:\Zork\Zork\bin\Debug\netcoreapp2.2\Zork.json
+E:\Zork\Zork\bin\Debug\netcoreapp2.2\Zork.deps.json
+E:\Zork\Zork\bin\Debug\netcoreapp2.2\Zork.runtimeconfig.json
+E:\Zork\Zork\bin\Debug\netcoreapp2.2\Zork.runtimeconfig.dev.json
+E:\Zork\Zork\bin\Debug\netcoreapp2.2\Zork.dll
+E:\Zork\Zork\bin\Debug\netcoreapp2.2\Zork.pdb
+E:\Zork\Zork\bin\Debug\netcoreapp2.2\Zork.Common.dll
+E:\Zork\Zork\bin\Debug\netcoreapp2.2\Zork.Common.pdb
+E:\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.csproj.AssemblyReference.cache
+E:\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.GeneratedMSBuildEditorConfig.editorconfig
+E:\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.AssemblyInfoInputs.cache
+E:\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.AssemblyInfo.cs
+E:\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.csproj.CoreCompileInputs.cache
+E:\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.csproj.CopyComplete
+E:\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.dll
+E:\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.pdb
+E:\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.genruntimeconfig.cache
+D:\School Docs\Tools & Plugins\Zork\Zork\bin\Debug\netcoreapp2.2\Zork.deps.json
+D:\School Docs\Tools & Plugins\Zork\Zork\bin\Debug\netcoreapp2.2\Zork.runtimeconfig.json
+D:\School Docs\Tools & Plugins\Zork\Zork\bin\Debug\netcoreapp2.2\Zork.runtimeconfig.dev.json
+D:\School Docs\Tools & Plugins\Zork\Zork\bin\Debug\netcoreapp2.2\Zork.dll
+D:\School Docs\Tools & Plugins\Zork\Zork\bin\Debug\netcoreapp2.2\Zork.pdb
+D:\School Docs\Tools & Plugins\Zork\Zork\bin\Debug\netcoreapp2.2\Zork.Common.dll
+D:\School Docs\Tools & Plugins\Zork\Zork\bin\Debug\netcoreapp2.2\Zork.Common.pdb
+D:\School Docs\Tools & Plugins\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.csproj.AssemblyReference.cache
+D:\School Docs\Tools & Plugins\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.GeneratedMSBuildEditorConfig.editorconfig
+D:\School Docs\Tools & Plugins\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.AssemblyInfoInputs.cache
+D:\School Docs\Tools & Plugins\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.AssemblyInfo.cs
+D:\School Docs\Tools & Plugins\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.csproj.CoreCompileInputs.cache
+D:\School Docs\Tools & Plugins\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.csproj.CopyComplete
+D:\School Docs\Tools & Plugins\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.dll
+D:\School Docs\Tools & Plugins\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.pdb
+D:\School Docs\Tools & Plugins\Zork\Zork\obj\Debug\netcoreapp2.2\Zork.genruntimeconfig.cache
