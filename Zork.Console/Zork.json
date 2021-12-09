@@ -51,10 +51,10 @@
         },
         "Items": [
           {
-            "Name": "trophy cabinet",
+            "Name": "trophy case",
             "IsPickup": "false",
             "CanCarryItems": "true",
-            "AlternativeName": "cabinet",
+            "AlternativeName": "case",
             "IsOpen": "false",
             "CanBeOpened": "true"
           },
