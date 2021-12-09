@@ -9,7 +9,21 @@
           "North": "North of House",
           "South": "South of House",
           "West": "Forest 1"
-        }
+        },
+        "Items": [
+          {
+            "Name": "lamp post",
+            "IsPickup": "false",
+            "CanCarryItems": "false",
+            "AlternativeName": "post"
+          },
+          {
+            "Name": "welcome mat",
+            "AlternativeName": "mat",
+            "IsPickup": "true",
+            "CanCarryItems": "false"
+          }
+        ]
       },
       {
         "Name": "North of House",
@@ -18,7 +32,15 @@
           "North": "Forest 2",
           "East": "Behind House",
           "West": "West of House"
-        }
+        },
+        "Items": [
+          {
+            "Name": "brass bauble",
+            "IsPickup": "true",
+            "CanCarryItems": "false",
+            "AlternativeName": "bauble"
+          }
+        ]
       },
       {
         "Name": "South of House",
@@ -26,7 +48,23 @@
         "Neighbors": {
           "East": "Behind House",
           "West": "West of House"
-        }
+        },
+        "Items": [
+          {
+            "Name": "trophy cabinet",
+            "IsPickup": "false",
+            "CanCarryItems": "true",
+            "AlternativeName": "cabinet",
+            "IsOpen": "false",
+            "CanBeOpened": "true"
+          },
+          {
+            "Name": "ivory torch",
+            "IsPickup": "true",
+            "CanCarryItems": "false",
+            "AlternativeName": "torch"
+          }
+        ]
       },
       {
         "Name": "Behind House",
@@ -35,7 +73,17 @@
           "East": "Clearing",
           "North": "North of House",
           "South": "South of House"
-        }
+        },
+        "Items": [
+          {
+            "Name": "gold coffin",
+            "IsPickup": "true",
+            "CanCarryItems": "true",
+            "AlternativeName": "coffin",
+            "IsOpen": "false",
+            "CanBeOpened": "true"
+          }
+        ]
       },
       {
         "Name": "Forest 1",
@@ -43,7 +91,15 @@
         "Neighbors": {
           "East": "West of House",
           "South": "Forest 3"
-        }
+        },
+        "Items": [
+          {
+            "Name": "jewel-encrusted egg",
+            "IsPickup": "true",
+            "CanCarryItems": "false",
+            "AlternativeName": "egg"
+          }
+        ]
       },
       {
         "Name": "Forest 2",
@@ -51,7 +107,23 @@
         "Neighbors": {
           "East": "Clearing",
           "South": "Clearing"
-        }
+        },
+        "Items": [
+          {
+            "Name": "pot of gold",
+            "IsPickup": "true",
+            "CanCarryItems": "true",
+            "AlternativeName": "pot",
+            "IsOpen": "true",
+            "CanBeOpened": "false"
+          },
+          {
+            "Name": "platinum bar",
+            "IsPickup": "true",
+            "CanCarryItems": "false",
+            "AlternativeName": "bar"
+          }
+        ]
       },
       {
         "Name": "Forest 3",
@@ -59,7 +131,15 @@
         "Neighbors": {
           "East": "Clearing",
           "North": "South of House"
-        }
+        },
+        "Items": [
+          {
+            "Name": "jeweled scarab",
+            "IsPickup": "true",
+            "CanCarryItems": "false",
+            "AlternativeName": "scarab"
+          }
+        ]
       },
       {
         "Name": "Clearing",
@@ -67,8 +147,20 @@
         "Neighbors": {
           "West": "Forest 2",
           "South": "Forest 3"
-        }
+        },
+        "Items": [
+          {
+            "Name": "silver chalice",
+            "IsPickup": "true",
+            "CanCarryItems": "true",
+            "AlternativeName": "chalice",
+            "IsOpen": "true",
+            "CanBeOpened": "false"
+          }
+        ]
       }
     ]
-  }
+  },
+  "Quips": [ "You can't be serious.", "LOL", "You must be a comedian.", "...", "I don't think so...", "Very funny.", "No.", 
+             "You may as well ask god", "That's not going to fit in your pockets."]
 }

@@ -6,6 +6,12 @@
         {
             const string defaultGameFileName = "Zork.json";
             string gameFileName = (args.Length > 0 ? args[(int)CommandLineArguments.RoomsFileName] : defaultGameFileName);
+            CreateAndRunGame(gameFileName);
+        }
+
+        private static void CreateAndRunGame(string gameFileName)
+        {
+
             Game game = Game.LoadFromFile(gameFileName);
 
             ConsoleOutputService output = new ConsoleOutputService();
@@ -19,6 +25,13 @@
             {
                 output.Write("\n> ");
                 input.ProcessInput();
+
+                if (game.IsResetting)
+                {
+                    game.IsRunning = false;
+                    CreateAndRunGame(gameFileName);
+                    return;
+                }
             }
 
             game.Output.WriteLine("Thank you for playing!");

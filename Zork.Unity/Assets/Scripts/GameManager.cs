@@ -9,12 +9,14 @@ public class GameManager : MonoBehaviour
     {
         TextAsset gameJsonAsset = Resources.Load<TextAsset>(zorkGameFileAssetName);
 
+        _game = null;
         _game = Game.Load(gameJsonAsset.text);
 
         SetMovesText(this, 0); SetScoreText(this, 0);
         _game.Player.MovesChanged += SetMovesText;
         _game.Player.ScoreChanged += SetScoreText;
         _game.IsRunningChanged += ExitApp;
+        _game.IsResettingChanged += ResetApp;
 
         OutputService.WriteLine("Welcome to Zork!");
         _game.Start(OutputService, InputService);
@@ -44,7 +46,13 @@ public class GameManager : MonoBehaviour
 
     void ExitApp(object sender, bool running)
     {
-        if(!running)
+        if (resetting)
+        {
+            resetting = false;
+            Awake();
+            return;
+        }
+        else if (!running)
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
@@ -53,6 +61,8 @@ public class GameManager : MonoBehaviour
 #endif
         }
     }
+
+    void ResetApp(object sender, bool reset) => resetting = reset;
 
     [SerializeField]
     private string zorkGameFileAssetName = "Zork";
@@ -65,6 +75,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TMP_Text ScoreText;
 
-    public Game _game;
     private bool canProcess;
+    private bool resetting;
+    public Game _game;
 }
