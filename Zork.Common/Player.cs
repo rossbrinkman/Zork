@@ -67,6 +67,17 @@ namespace Zork
                     }
                 }
             }
+            if (foundItem == null)
+            {
+                foreach (Item i in Items)
+                {
+                    if (i.IsOpen)
+                    {
+                        foundItem = IsItemInList(i.Items, itemName);
+                        i.Items.Remove(foundItem);
+                    }
+                }
+            }
 
             if (foundItem != null && foundItem.IsPickup)
             {
